@@ -2,15 +2,19 @@
 
 from django.shortcuts import render,HttpResponse
 from datetime import datetime
+from bse.setExport import setStatic
+from bse.parseCSV import analyseCSV,keys,connection
+
 
 
 # Create your views here.
 def index(request):
-    now=datetime.now()
-    day=now.strftime("%d")
-    month=now.strftime("%m")
-    year=now.strftime("%y")
+    filename=setStatic()
+    analyseCSV(filename)
+    single=connection.hget('abb ltd.','open').decode('utf-8')
     context={
-        'filename': f"EQ{12}{month}{year}.csv"
+        'filename': f"{filename}",
+        'keys':f"{keys}",
+        'single':f"{single}",
     }
     return render(request,'index.html',context)

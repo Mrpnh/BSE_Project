@@ -13,24 +13,26 @@
 <body style="background: url({% static 'market.jpg' %}) center center/cover;">
     <div class="container">
         <div class="row">
-            <div class="col-5 mx-auto md-5">
+            <div class="col-5 mx-auto md-5" >
                 <div id="project-title">
-                    <h1>BOMBAY DAILY EXCHANGE</h1>
-                    <h5>An Open Source Project</h5>
+                    <h1 style="font-size: 1.5hw;">BOMBAY DAILY EXCHANGE</h1>
+                    <h5 style="font-size: 1.5hw;">An Open Source Project</h5>
                 </div>
                 <div>
                     <button type="button" class="btn btn-success"> <a href="{% static filename %}">Export CSV</a></button>
                     <h6 class="primary">( Click here to download today's BSE report )</h6>     
                 </div>
                 <div id="project_search">
-                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                      aria-describedby="search-addon" />
-                    <button type="button" class="btn btn-outline-primary" id="search_button">Search</button>
+                    <form action="/search/" method="POST">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                          aria-describedby="search-addon" />
+                          <button class="btn btn-primary" id="search_button" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
             <div class="project_table">
-            <table class="table table-hover text-center col-6">
-                <thead>
+            <table class="table table-hover text-center col-6" style="font-size: 80%;">
+                <thead >
                     <tr>
                         <th scope="col">CODE</th>
                         <th scope="col">NAME</th>
@@ -42,7 +44,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="align-middle">Prasd</td>
+                        <td class="align-middle">{{single}}</td>
                         <td class="align-middle">Prasd</td>
                         <td class="align-middle">Prasd</td>
                         <td class="align-middle">Prasd</td>
