@@ -5,7 +5,6 @@ from bse.setExport import setStatic
 def routine():
     statusFromWeb=requestWeb()
     staticfile=setStatic()
-    analyseCSV(filename)
     if requestWeb!="None":
         path_parent = os.path.dirname(os.getcwd())
         os.chdir("static/")
