@@ -28,7 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# cronjob added
+ 
+CRONJOBS = [
+    ('5 18 * * *', 'bse.cron.routine')
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bse'
+    'bse',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [

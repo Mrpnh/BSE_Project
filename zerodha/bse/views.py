@@ -10,19 +10,19 @@ from bse.parseCSV import analyseCSV,keys,connection
 # Create your views here.
 def index(request):
     global keys
-    connection.flushall()
     filename=setStatic()
+    keys=analyseCSV(filename)
+    date=filename[2:4]+'/'+filename[4:6]+'/'+filename[6:8]
     context={
         'filename': f"{filename}",
-        
+        'date' : f"{date}"
     }
     return render(request,'index.html',context)
 
 def search(request):
     filename=setStatic()
-    analyseCSV(filename)
     value=request.POST['search'].lower()
-    matching = [key for key in keys if value in key]
+    matching = [everyMatch for everyMatch in keys if value in everyMatch]
     answers=[]
     answers.clear()
     for match in matching:
@@ -37,5 +37,4 @@ def search(request):
         'filename': f"{filename}",
         'answers': answers,
     }
-    connection.flushall()    
     return render(request,'index.html',context)
