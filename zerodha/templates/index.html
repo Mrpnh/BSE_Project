@@ -22,10 +22,11 @@
                     <button type="button" class="btn btn-success"> <a href="{% static filename %}">Export CSV</a></button>
                     <h6 class="primary">( Click here to download today's BSE report )</h6>     
                 </div>
-                <div id="project_search">
+                <div class="project_search">
                     <form action="/search/" method="POST">
+                        {% csrf_token %}
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                          aria-describedby="search-addon" />
+                          aria-describedby="search-addon" name='search'/>
                           <button class="btn btn-primary" id="search_button" type="submit">Search</button>
                     </form>
                 </div>
@@ -43,14 +44,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for answer in answers %}
                     <tr>
-                        <td class="align-middle">{{single}}</td>
-                        <td class="align-middle">Prasd</td>
-                        <td class="align-middle">Prasd</td>
-                        <td class="align-middle">Prasd</td>
-                        <td class="align-middle">Prasd</td>
-                        <td class="align-middle">Prasd</td>
+                        {% for key,value in answer.items%}
+                        <td class="align-middle">{{value}}</td>   
+                        {%endfor%}        
                     </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </div>

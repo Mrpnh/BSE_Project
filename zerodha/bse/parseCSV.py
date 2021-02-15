@@ -8,6 +8,7 @@ import os
 connection=redis.Redis()
 keys=[]
 def analyseCSV(filename):
+    print(len(keys))
     now=datetime.now()
     day=now.strftime("%d")
     month=now.strftime("%m")
@@ -16,6 +17,7 @@ def analyseCSV(filename):
         with open(f"static/{filename}",'r') as infile:
             csvfile=csv.reader(infile,delimiter=",")
             execute=0
+            connection.flushall()
             for row in csvfile:
                 if execute<1:
                     execute+=1
