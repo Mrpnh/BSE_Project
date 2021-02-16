@@ -24,15 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '(1&i1^-4q%byx(ctbr7f0m_x0u4_v2evmil04p8w5a4a!@t*_k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# cronjob added
- 
-CRONJOBS = [
-    ('5 18 * * *', 'bse.cron.routine')
-]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bse',
-    'django_crontab',
 ]
 
 MIDDLEWARE = [

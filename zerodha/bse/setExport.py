@@ -2,6 +2,7 @@ from datetime import datetime
 import os
 
 def setStatic():
+    # Sets the current file in the static folder    
     now=datetime.now()
     day=now.strftime("%d")
     month=now.strftime("%m")
