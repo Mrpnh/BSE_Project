@@ -15,7 +15,7 @@ This project uses :
 3) Daily update of equities
 
 
-How to install the website:
+# How to install the website:
 
  1) Download Redis
  
